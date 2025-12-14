@@ -24,7 +24,7 @@ const Hero = () => {
           <motion.a
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            href="#"
+            href="https://github.com/satyamkumar25923-gif"
             className="p-3 glass-card hover:bg-white/10 rounded-full"
           >
             <Github className="w-6 h-6" />
@@ -32,7 +32,7 @@ const Hero = () => {
           <motion.a
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            href="#"
+            href="https://www.linkedin.com/in/satyam-kumar-0a17312b3?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
             className="p-3 glass-card hover:bg-white/10 rounded-full"
           >
             <Linkedin className="w-6 h-6" />
@@ -40,7 +40,7 @@ const Hero = () => {
           <motion.a
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            href="mailto:contact@example.com"
+            href="mailto:satyamkumar25923@gmail.com"
             className="p-3 glass-card hover:bg-white/10 rounded-full"
           >
             <Mail className="w-6 h-6" />

@@ -5,8 +5,8 @@ import { ExternalLink, Github } from 'lucide-react';
 const Projects = () => {
     const projects = [
         {
-            title: 'E-Commerce Website',
-            description: 'A full-stack e-commerce platform with user authentication, product catalog, shopping cart, and payment integration.',
+            title: 'K Forum',
+            description: 'A dynamic social platform focused on student interaction, featuring anonymous confessions, real-time community discussions, and seamless peer-to-peer engagement.',
             tech: ['React', 'Node.js', 'MongoDB', 'Stripe'],
             github: '#',
             live: '#',

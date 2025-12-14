@@ -8,7 +8,7 @@ const Skills = () => {
             skills: [
                 { name: 'Python', level: 40 },
                 { name: 'JavaScript', level: 70 },
-                { name: 'Java', level: 0 },
+                { name: 'C', level: 100 },
                 { name: 'C++', level: 0 },
             ]
         },
@@ -18,16 +18,16 @@ const Skills = () => {
                 { name: 'React', level: 30 },
                 { name: 'HTML/CSS', level: 90 },
                 { name: 'Node.js', level: 0 },
-                { name: 'MongoDB', level: 0 },
+                { name: 'MongoDB', level: 30 },
             ]
         },
         {
             title: 'Tools & Others',
             skills: [
-                { name: 'Git/GitHub', level: 50 },
-                { name: 'VS Code', level: 70 },
+                { name: 'Git/GitHub', level: 60 },
+                { name: 'VS Code', level: 90 },
                 { name: 'Figma', level: 40 },
-                { name: 'Linux', level: 0 },
+                { name: 'Antigravity', level: 90 },
             ]
         }
     ];

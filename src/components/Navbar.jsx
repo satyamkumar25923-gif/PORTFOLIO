@@ -1,16 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [scrolled, setScrolled] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
+    const lastScrollY = useRef(0);
 
     useEffect(() => {
         const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
+            const currentScrollY = window.scrollY;
+
+            // Show if at top or scrolling up
+            if (currentScrollY < lastScrollY.current || currentScrollY < 10) {
+                setIsVisible(true);
+            } else if (currentScrollY > lastScrollY.current && currentScrollY > 10) {
+                // Hide if scrolling down and not at top
+                setIsVisible(false);
+                setIsOpen(false); // Also close mobile menu on scroll
+            }
+
+            lastScrollY.current = currentScrollY;
         };
-        window.addEventListener('scroll', handleScroll);
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -26,10 +39,9 @@ const Navbar = () => {
     return (
         <motion.nav
             initial={{ y: -100 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.5 }}
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-black/80 backdrop-blur-lg shadow-lg' : 'bg-transparent'
-                }`}
+            animate={{ y: isVisible ? 0 : -100 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent"
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
@@ -68,27 +80,30 @@ const Navbar = () => {
             </div>
 
             {/* Mobile Menu */}
-            {isOpen && (
-                <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    className="md:hidden bg-black/95 backdrop-blur-lg"
-                >
-                    <div className="px-2 pt-2 pb-3 space-y-3">
-                        {navItems.map((item, index) => (
-                            <a
-                                key={index}
-                                href={item.href}
-                                onClick={() => setIsOpen(false)}
-                                className="block px-3 py-2 text-gray-300 hover:text-white hover:bg-white/10 rounded-lg transition-all"
-                            >
-                                {item.name}
-                            </a>
-                        ))}
-                    </div>
-                </motion.div>
-            )}
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.2 }}
+                        className="md:hidden bg-black/90 backdrop-blur-lg border-t border-white/10"
+                    >
+                        <div className="px-2 pt-2 pb-3 space-y-3">
+                            {navItems.map((item, index) => (
+                                <a
+                                    key={index}
+                                    href={item.href}
+                                    onClick={() => setIsOpen(false)}
+                                    className="block px-3 py-2 text-gray-300 hover:text-white hover:bg-white/10 rounded-lg transition-all"
+                                >
+                                    {item.name}
+                                </a>
+                            ))}
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </motion.nav>
     );
 };

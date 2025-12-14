@@ -8,7 +8,7 @@ const Education = () => {
             degree: 'Bachelor of Technology',
             field: 'Computer Science Engineering',
             institution: 'Your College Name',
-            period: '2024 - 2028',
+            period: '2025 - 2029',
             cgpa: '8.5 CGPA',
             highlights: [
                 'First Year Student',

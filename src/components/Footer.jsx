@@ -4,9 +4,9 @@ import { Github, Linkedin, Mail, Heart } from 'lucide-react';
 
 const Footer = () => {
     const socialLinks = [
-        { icon: <Github className="w-5 h-5" />, href: '#', label: 'GitHub' },
-        { icon: <Linkedin className="w-5 h-5" />, href: '#', label: 'LinkedIn' },
-        { icon: <Mail className="w-5 h-5" />, href: 'mailto:contact@example.com', label: 'Email' },
+        { icon: <Github className="w-5 h-5" />, href: 'https://github.com/satyamkumar25923-gif', label: 'GitHub' },
+        { icon: <Linkedin className="w-5 h-5" />, href: 'https://www.linkedin.com/in/satyam-kumar-0a17312b3?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app', label: 'LinkedIn' },
+        { icon: <Mail className="w-5 h-5" />, href: 'mailto:satyamkumar25923@gmail.com', label: 'Email' },
     ];
 
     return (

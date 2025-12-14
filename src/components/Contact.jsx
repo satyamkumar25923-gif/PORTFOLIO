@@ -28,19 +28,19 @@ const Contact = () => {
         {
             icon: <Mail className="w-6 h-6" />,
             label: 'Email',
-            value: 'your.email@example.com',
-            link: 'mailto:your.email@example.com'
+            value: 'satyamkumar25923@gmail.com',
+            link: 'mailto:satyamkumar25923@gmail.com'
         },
         {
             icon: <Phone className="w-6 h-6" />,
             label: 'Phone',
-            value: '+91 XXXXX XXXXX',
-            link: 'tel:+91XXXXXXXXXX'
+            value: '7033342269',
+            link: 'tel:7033342269'
         },
         {
             icon: <MapPin className="w-6 h-6" />,
             label: 'Location',
-            value: 'Your City, India',
+            value: 'Darbhanga, Bihar, India',
             link: '#'
         }
     ];
